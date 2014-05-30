@@ -1,0 +1,33 @@
+<table class="table table-stripped table-bordered table-hover">
+  <tr>
+    <th>Номер</th>
+    <th>Отправляется из</th>
+    <th>Дата отправки</th>
+    <th>Пункт назначения</th>
+    <th>Дата прибытия</th>
+    <th>Расстояние</th>
+    <th>Потрачено времени</th>
+    <th>Вес груза</th>
+    <th>Использовано топлива</th>
+    <th>Авто</th>
+    <th>Действия</th>
+  </tr>
+  <tr ng-repeat="transportation in transportations">
+    <td>{{ transportation.id }}</td>
+    <td>{{ transportation.origin }}</td>
+    <td>{{ transportation.startDate | date: 'dd-MM-yyyy' }}</td>
+    <td>{{ transportation.destination }}</td>
+    <td>{{ transportation.arrivalDate | date: 'dd-MM-yyyy' }}</td>
+    <td>{{ transportation.distance }}</td>
+    <td>{{ transportation.totalTime }}</td>
+    <td>{{ transportation.cargoWeight }}</td>
+    <td>{{ transportation.fuelUsed }}</td>
+    <td>{{ transportation.car.number }}</td>
+    <td>
+      <a href="#transportation/{{ transportation.id }}/edit">Изменить</a>
+      <a href="" ng-click="deleteTransportation(transportation.id)">Удалить</a>
+    </td>
+  </tr>
+</table>
+
+<a href="#/transportation/new" class="btn btn-success">Добавить перевозку</a>

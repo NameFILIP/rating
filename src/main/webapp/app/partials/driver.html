@@ -1,0 +1,31 @@
+<table class="table table-stripped table-bordered table-hover">
+  <tr>
+    <th>Номер</th>
+    <th>ФИО</th>
+    <th>День рождения</th>
+    <th>Стаж</th>
+    <th>Статус</th>
+<!--     <th>Автобиография</th> -->
+    <th>Зарплата</th>
+    <th>Авто</th>
+    <th>Действия</th>
+  </tr>
+  <tr ng-repeat="driver in drivers | orderBy: 'experience'">
+    <td>{{ driver.id }}</td>
+    <td>{{ driver.fullName }}</td>
+    <td>{{ driver.birthDate | date: 'dd-MM-yyyy'}}</td>
+    <td>{{ driver.experience }}</td>
+    <td>{{ driver.status() }}</td>
+<!--     <td>{{ driver.autobiography }}</td> -->
+    <td>{{ driver.salary }}</td>
+    <td>{{ driver.car.number }}</td>
+    
+    
+    <td>
+      <a href="#driver/{{ driver.id }}/edit">Изменить</a>
+      <a href="" ng-click="deleteDriver(driver.id)">Удалить</a>
+    </td>
+  </tr>
+</table>
+
+<a href="#/driver/new" class="btn btn-success">Добавить Водителя</a>

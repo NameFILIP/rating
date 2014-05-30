@@ -1,0 +1,50 @@
+<form ng-submit="submitTransportationForm()" class="form">
+<!--    <div class="form-group"> -->
+<!--     <label>Номер</label> -->
+<!--     <input type="text" id="id" ng-model="transportationForm.id" class="form-control">  -->
+<!--   </div> -->
+   <div class="form-group">
+    <label>Отправляется из</label>
+    <input type="text" id="origin" ng-model="transportationForm.origin" class="form-control">
+  </div>
+   <div class="form-group">
+    <label>Дата отправки</label>
+    <input type="text" id="startDate" ng-model="transportationForm.startDate" class="form-control">
+  </div>
+   <div class="form-group">
+    <label>Пункт назначения</label>
+    <input type="text" id="destination" ng-model="transportationForm.destination" class="form-control">
+  </div>
+   <div class="form-group">
+    <label>Дата прибытия</label>
+    <input type="text" id="arrivalDate" ng-model="transportationForm.arrivalDate" class="form-control">
+  </div>
+   <div class="form-group">
+    <label>Расстояние</label>
+    <input type="text" id="distance" ng-model="transportationForm.distance" class="form-control">
+  </div>
+   <div class="form-group">
+    <label>Потрачено времени</label>
+    <input type="text" id="totalTime" ng-model="transportationForm.totalTime" class="form-control">
+  </div>
+   <div class="form-group">
+    <label>Вес груза</label>
+    <input type="text" id="cargoWeight" ng-model="transportationForm.cargoWeight" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Использовано топлива</label>
+    <input type="text" id="fuelUsed" ng-model="transportationForm.fuelUsed" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Номер авто</label>
+    <select ng-model="transportationForm.car.number" class="form-control">
+      <option value="">None</option>
+      <option ng-repeat="car in cars" value="{{ car.number }}">{{ car.number }}</option>
+  </select>
+  </div>
+  
+  
+  
+  <input type="submit" value="Готово" class="btn btn-success">
+  <a href="#/transportation" class="btn">Отмена</a>
+</form>

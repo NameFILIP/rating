@@ -1,0 +1,27 @@
+<table class="table table-stripped table-bordered table-hover">
+  <tr>
+    <th>Номер</th>
+    <th>Марка</th>
+    <th>Статус</th>
+    <th>Место нахождения</th>
+    <th>Средняя скорость</th>
+    <th>Грузоподъемность</th>
+    <th>Расход топлива</th>
+    <th>Действия</th>
+  </tr>
+  <tr ng-repeat="car in cars">
+    <td>{{ car.number }}</td>
+    <td>{{ car.brand }}</td>
+    <td>{{ car.status }}</td>
+    <td>{{ car.location }}</td>
+    <td>{{ car.averageSpeed }}</td>
+    <td>{{ car.carryingCapacity }}</td>
+    <td>{{ car.fuelConsumption }}</td>
+    <td>
+      <a href="#car/{{ car.number }}/edit">Изменить</a>
+      <a href="" ng-click="deleteCar(car.number)">Удалить</a>
+    </td>
+  </tr>
+</table>
+
+<a href="#/car/new" class="btn btn-success">Добавить Автомобиль</a>

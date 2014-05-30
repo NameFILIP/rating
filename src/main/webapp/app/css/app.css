@@ -1,0 +1,17 @@
+/* app css stylesheet */
+
+
+#examapp {
+	width: 700px;
+	margin: 130px auto 40px auto;
+}
+
+#header {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	text-align: center;
+	font-size: 60px;
+	font-weight: bold;
+	color: #b3b3b3;
+}

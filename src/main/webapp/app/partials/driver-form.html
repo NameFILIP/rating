@@ -1,0 +1,38 @@
+<form ng-submit="submitDriverForm()" class="form">
+
+<!--   <div class="form-group"> -->
+<!--     <label>Номер</label> -->
+<!--     <input type="text" id="id" ng-model="driverForm.id" class="form-control"> -->
+<!--   </div> -->
+  <div class="form-group">
+    <label>ФИО</label>
+    <input type="text" id="fullName" ng-model="driverForm.fullName" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>День рождения</label>
+    <input type="text" id="birthDate" ng-model="driverForm.birthDate" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Стаж</label>
+    <input type="text" id="experience" ng-model="driverForm.experience" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Автобиография</label>
+    <input type="text" id="autobiography" ng-model="driverForm.autobiography" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Зарплата</label>
+    <input type="text" id="autobiography" ng-model="driverForm.salary" class="form-control">
+  </div>
+  
+  <div class="form-group">
+    <label>Номер авто</label>
+    <select ng-model="driverForm.car.number" class="form-control">
+      <option value="">Нет</option>
+      <option ng-repeat="car in cars" value="{{ car.number }}">{{ car.number }}</option>
+  </select>
+  </div>
+  
+  <input type="submit" value="Готово" class="btn btn-success">
+  <a href="#/driver" class="btn">Отмена</a>
+</form>

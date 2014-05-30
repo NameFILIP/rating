@@ -1,0 +1,49 @@
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.2.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+        http://www.springframework.org/schema/data/jpa
+        http://www.springframework.org/schema/data/jpa/spring-jpa-1.2.xsd">
+
+
+	<context:property-placeholder location="classpath:/db.properties" />
+
+	<!-- BoneCP (Connection Pool) configuration -->
+	<bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close"
+			p:driverClass="${dataSource.driverClass}"
+			p:jdbcUrl="${dataSource.jdbcUrl}"
+			p:username="${dataSource.username}"
+			p:password="${dataSource.password}" />
+	
+	<!-- JPA -->
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
+			p:dataSource-ref="dataSource"
+			p:packagesToScan="org.namefilip.rating.entity"
+			p:jpaVendorAdapter-ref="jpaVendorAdapter" />
+
+	<bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"
+			p:database="${hibernateJpa.database}"
+			p:showSql="${hibernateJpa.showSql}"
+			p:generateDdl="${hibernateJpa.generateDdl}"
+			p:databasePlatform="${hibernateJpa.databasePlatform}" />
+			
+	<!-- Transactions -->
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"
+			p:entityManagerFactory-ref="entityManagerFactory" />
+	
+	<tx:annotation-driven />
+	
+	<!-- Spring Data JPA -->
+	<jpa:repositories base-package="org.namefilip.rating.repository" />
+	
+	
+</beans>
