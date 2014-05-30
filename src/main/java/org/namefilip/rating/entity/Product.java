@@ -19,7 +19,7 @@ public class Product {
 	
 	@ManyToOne
 	@JoinColumn
-	private Category category;
+	private Subcategory subcategory;
 	
 	
     public Long getId() {
@@ -54,12 +54,12 @@ public class Product {
     	this.brand = brand;
     }
 	
-    public Category getCategory() {
-    	return category;
+    public Subcategory getSubcategory() {
+    	return subcategory;
     }
 	
-    public void setCategory(Category category) {
-    	this.category = category;
+    public void setSubcategory(Subcategory subcategory) {
+    	this.subcategory = subcategory;
     }
 	
 }
