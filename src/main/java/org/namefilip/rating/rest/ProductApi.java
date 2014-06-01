@@ -109,4 +109,13 @@ public class ProductApi {
 //		return reviewRepository.save(reviewJson);
 //	}
 	
+	/**
+	 * Rating
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/{productId}/rating", method = RequestMethod.GET)
+	public Double calculateRating(@PathVariable Long productId) {
+		return productRepository.calculateRating(productId);
+	}
+	
 }
