@@ -1,16 +1,23 @@
 package org.namefilip.rating.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 
 @Entity
 public class Category {
 	
 	@Id
+	@GeneratedValue
 	private Long id;
 	private String name;
 	
+	@ManyToOne
+	@JoinColumn
+	private Category category;
 	
     public Long getId() {
     	return id;
@@ -27,5 +34,13 @@ public class Category {
     public void setName(String name) {
     	this.name = name;
     }
-    
+
+    public Category getCategory() {
+    	return category;
+    }
+	
+    public void setCategory(Category category) {
+    	this.category = category;
+    }
+       
 }

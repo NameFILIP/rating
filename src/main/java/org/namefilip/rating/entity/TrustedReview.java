@@ -1,6 +1,7 @@
 package org.namefilip.rating.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -9,6 +10,7 @@ import javax.persistence.ManyToOne;
 public class TrustedReview {
 	
 	@Id
+	@GeneratedValue
 	private Long id;
 	private Boolean trusted;
 	
